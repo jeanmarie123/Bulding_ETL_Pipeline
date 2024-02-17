@@ -1,0 +1,35 @@
+# Configuration du pipeline de donnees
+pipeline:
+  name: pipeline de donnees immobliliere
+  version: 1.0
+
+# Configuration de la base de donnees
+
+
+# lien des donnees sources immobiliere en France 
+imo_23_filepath: .data/valeursfoncieres_2023.txt
+imo_22_filepath: .data/valeursfoncieres_2022.txt
+localite: .data/departements-france.csv
+
+
+# listes des colonnes 
+imo_23_list_colonnes: ['No disposition', 'Date mutation', 'Nature mutation', 'Valeur fonciere', 
+                       'Code voie', 'Voie', 'Code postal', 'Commune', 'Code departement', 
+                       'Code commune', 'No Volume', '1er lot', 'Surface Carrez du 1er lot', '2eme lot', 
+                       'Surface Carrez du 2eme lot', '3eme lot', 'Surface Carrez du 3eme lot', 
+                       '4eme lot', 'Surface Carrez du 4eme lot', '5eme lot', 'Surface Carrez du 5eme lot',
+                       'Nombre de lots', 'Code type local', 'Type local', 'Surface reelle bati', 
+                       'Nombre pieces principales']
+
+imo_22_list_colonnes: ['No disposition', 'Date mutation', 'Nature mutation', 'Valeur fonciere', 
+                       'Code voie', 'Voie', 'Code postal', 'Commune', 'Code departement', 
+                       'Code commune', 'No Volume', '1er lot', 'Surface Carrez du 1er lot', '2eme lot', 
+                       'Surface Carrez du 2eme lot', '3eme lot', 'Surface Carrez du 3eme lot', 
+                       '4eme lot', 'Surface Carrez du 4eme lot', '5eme lot', 'Surface Carrez du 5eme lot',
+                       'Nombre de lots', 'Code type local', 'Type local', 'Surface reelle bati', 
+                       'Nombre pieces principales']
+
+depart_col : ['code_departement', 'nom_departement', 'code_region', 'nom_region']
+
+
+    

@@ -24,3 +24,7 @@ def extract_data(filepath: object, col_select: list) -> object:
         print(f"Erreur : {e}")   
 
     return imo_df
+
+def extract_localite(filepath):
+    localite_df = pd.read_csv(filepath)
+    return localite_df
