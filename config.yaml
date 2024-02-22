@@ -4,7 +4,11 @@ pipeline:
   version: 1.0
 
 # Configuration de la base de donnees
-
+host: localhost
+database: postgres
+user: postgres
+password: 1234
+database_name: Immobilier 
 
 # lien des donnees sources immobiliere en France 
 imo_23_filepath: .data/valeursfoncieres_2023.txt
@@ -32,4 +36,42 @@ imo_22_list_colonnes: ['No disposition', 'Date mutation', 'Nature mutation', 'Va
 depart_col : ['code_departement', 'nom_departement', 'code_region', 'nom_region']
 
 
-    
+# Schema de la base de données en sortie PSQL
+Caracteristique_bien_creat: '''CREATE TABLE IF NOT EXISTS Immobilier.Caracteristique_bien(
+                                  no_disposition        int, 
+                                  date_mutation         date,
+                                  nature_mutation       varchar(50),
+                                  valeur_fonciere       int, 
+                                  code_voie             varchar(8),
+                                  voie                  varchar(100),
+                                  code_postal           int, 
+                                  commune               varchar(100),
+                                  code_departement      int, 
+                                  code_commune          int,
+                                  id_log                int 
+                                );
+                                ALTER TABLE Caracteristique_bien ADD CONSTRAINT fk_Caracteristique_bien_code_departement FOREIGN KEY(code_departement)
+                                REFERENCES "Zone_geographique" ("code_departement_id");
+
+                                ALTER TABLE "Caracteristique_bien" ADD CONSTRAINT "fk_Caracteristique_bien_id_log" FOREIGN KEY("id_log")REFERENCES "Type_logement" ("id_log");
+                            '''
+
+Type_logement_creat: '''CREATE TABLE IF NOT EXISTS  Immobilier.Type_logement(
+                            id_log                    int, 
+                            nombre_de_lots            int, 
+                            code_type_local           int,
+                            type_local                varchar(100),
+                            surface_reelle_bati       int, 
+                            nombre_pieces             int,
+                            CONSTRAINT pk_Type_logement PRIMARY KEY(id_log) 
+                        );
+                     '''
+
+Zone_geographique_creat: '''CREATE TABLE IF NOT EXISTS  Immobilier.Zone_geographique(
+                                code_departement_id           int,
+                                nom_departement           varchar(60),
+                                code_region                   int,  
+                                nom_region                    varchar(60),
+                                CONSTRAINT pk_Zone_geographique PRIMARY KEY(code_departement_id)
+                              )
+                         '''

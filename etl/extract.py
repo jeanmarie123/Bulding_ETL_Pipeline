@@ -14,7 +14,7 @@ def extract_data(filepath: object, col_select: list) -> object:
         imo_df = pd.read_csv(filepath, delimiter = "|", low_memory = False)
         imo_df = imo_df[col_select]
 
-        print(f"les données ont été bien extrait : {filepath}")
+        print(f"les données immobilères {filepath} ont été bien extrait")
     
     # Gerer les exceptions si les fichiers manquent
     except FileNotFoundError as e:
