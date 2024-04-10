@@ -4,7 +4,7 @@ import psycopg2
 import plotly.express as px
 import os 
 import warnings
-from analytics.analyse import read_data
+from analytics.analyse import *
 warnings.filterwarnings('ignore')
 
 # Titre de la page via le web
