@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import psycopg2
 import plotly.express as px
 import os 
 import warnings
